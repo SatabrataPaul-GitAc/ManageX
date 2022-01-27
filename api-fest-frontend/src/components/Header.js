@@ -46,7 +46,7 @@ function Header() {
           {/* <MenuIcon /> */}
         </IconButton>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-        <Link to="/" style={{fontSize: 25, color: '#fff', textDecoration: 'none'}}>MANAGEX</Link>
+        <Link to="/" style={{fontSize: 25, color: '#fff', textDecoration: 'none'}}>MANAGE-X</Link>
         </Typography>
         <Box>
           <Button

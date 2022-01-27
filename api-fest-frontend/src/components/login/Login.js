@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Button } from "@material-ui/core";
 import { TextField } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 function Login() {
   return (
@@ -58,6 +59,8 @@ function Login() {
               variant="outlined"
               style={{ width: "30vw" }}
             />
+            <Link to="/dashboard" style={{fontSize: 25, color: '#fff', textDecoration: 'none'}}>
+              
             <Button
               style={{
                 backgroundColor: "#FF6C37",
@@ -69,6 +72,7 @@ function Login() {
             >
               LOG IN
             </Button>
+            </Link>
           </Box>
         </Box>
       </Box>

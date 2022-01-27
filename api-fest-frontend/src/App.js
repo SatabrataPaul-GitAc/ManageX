@@ -4,6 +4,7 @@ import "./app.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Login from "./components/login/Login";
 import Signup from "./components/signup/Signup";
+import Dashboard from "./components/dashboard/Dashboard";
 
 ////////
 import "react-tiger-transition/styles/main.min.css";
@@ -29,6 +30,7 @@ function App() {
           <Route exact path="/" component={Hero} />
           <Route exact path="/login" transition='glide-left' component={Login} />
           <Route exact path="/signup" transition='glide-left' component={Signup} />
+          <Route exact path="/dashboard" transition='glide-left' component={Dashboard} />
         </Navigation>
       </Switch>
     </BrowserRouter>

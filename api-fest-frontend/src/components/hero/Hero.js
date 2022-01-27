@@ -35,8 +35,8 @@ function Hero() {
     <Box className={classes.box}>
       <Box className={classes.container1}>
         <div className="home_text">
-            <h1>MANAGEX</h1>
-            <h3>An application to maintain the data of the employess, and can also add, delete, update data based on the requirement.</h3>
+            <h1>MANAGE-X</h1>
+            <h3>Application which helps an HR or Manager, to manage the details and information for various employees of an organization.</h3>
         </div>
         <Button style={{ background: "#FF6C37", color: "#fff", width:'160px', marginTop: '2rem', padding: '1rem' }}>
         <Link to="/signup" style={{color: '#fff', textDecoration: 'none'}}>GET STARTED</Link>
