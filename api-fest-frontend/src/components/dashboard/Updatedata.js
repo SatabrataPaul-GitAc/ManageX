@@ -1,6 +1,8 @@
-import { Button, makeStyles, Typography } from "@material-ui/core";
+import { Button, makeStyles, TextField, Typography } from "@material-ui/core";
 import { Box } from "@mui/material";
 import React from "react";
+// import AccountCircle from "@mui/icons-material/AccountCircle";
+import EditIcon from "@mui/icons-material/Edit";
 
 const useStyles = makeStyles({
   main_container: {
@@ -18,61 +20,56 @@ const useStyles = makeStyles({
   },
   right_container: {
     display: "flex",
+    flexDirection: "column",
     width: "60vw",
-    height: "80vh",
-  },
-  user_container: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
+    height: "90vh",
     alignItems: "center",
   },
-  dashboard_cards: {
+  right_container_top: {
     display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "center",
     alignItems: "center",
-  },
-  dashboard_card: {
-    width: "300px",
-    height: "160px",
-    backgroundColor: "#000",
-    margin: "4rem",
-    display: "flex",
     flexDirection: "column",
+  },
+  right_container_bottom: {
+    backgroundColor: "#fff",
+    // width: "60vw",
+  },
+  login_button: {
+    backgroundColor: "#FF6C37",
+    color: "#fff",
+    fontWeight: 800,
+    width: "20vw",
+    padding: "0.7rem",
+    "&:hover": {
+      backgroundColor: "#000",
+    },
+  },
+  heading: {
+    color: "#000",
+    fontSize: "2.5rem",
+    paddingTop: "2rem",
+    paddingBottom: "1rem",
+  },
+  update_form: {
+    display: "flex",
+    justifyContent: "space-around",
+    flexDirection: "column",
+    alignItems: "center",
+    height: "60vh",
+    margin: "auto",
+    padding: "2rem",
+    // backgroundColor: "#fff",
+    backgroundColor: "#fff",
     borderRadius: "20px",
   },
-  image_dashboard: {
-    width: "100%",
-    height: "100%",
-    objectFit: "cover",
-  },
-  image_box: {
-    width: "250px",
-    height: "250px",
-    borderRadius: "100px",
-  },
-  image_user: {
-    borderRadius: "100px",
-    width: "100%",
-    height: "100%",
-    objectFit: "cover",
-  },
-  user_text: {
-    color: "#f2f2f2",
-    fontSize: "24px",
-    paddingTop: "1rem",
-  },
-  button_box: {
-    display: "flex",
+  signup_button: {
     backgroundColor: "#FF6C37",
-  },
-  button: {
-    margin: "0.5rem auto 0.5rem auto",
-    color: "#FF6C37",
-    backgroundColor: "#fff",
+    color: "#fff",
+    fontWeight: 800,
+    width: "20vw",
+    padding: "0.7rem",
     "&:hover": {
-      backgroundColor: "#2C2C2C",
+      backgroundColor: "#000",
     },
   },
 });
@@ -88,7 +85,60 @@ function Updatedata() {
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
         />
       </Box>
-      <Box className={classes.right_container}>update data</Box>
+      <Box className={classes.right_container}>
+        <Typography className={classes.heading}>Update Data</Typography>
+        <Box className={classes.right_container_top}>
+          <TextField
+            id="outlined-basic"
+            label="Employee ID"
+            variant="outlined"
+            style={{ width: "30vw", paddingBottom: "1rem" }}
+          />
+          <Button className={classes.login_button}>ENTER</Button>
+        </Box>
+        <Box className={classes.right_container_bottom}>
+          <Box className={classes.update_form}>
+            <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+              <EditIcon sx={{ color: "action.active", mr: 1, my: 0.5 }} />
+              <TextField
+                hiddenLabel
+                id="filled-hidden-label-normal"
+                defaultValue="Virat Kohli"
+                variant="filled"
+                style={{ width: "18vw" }}
+              />
+            </Box>
+            <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+              <EditIcon sx={{ color: "action.active", mr: 1, my: 0.5 }} />
+              <TextField
+                hiddenLabel
+                id="filled-hidden-label-normal"
+                defaultValue="$1200"
+                variant="filled"
+                style={{ width: "18vw" }}
+              />
+            </Box>
+            <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+              <EditIcon sx={{ color: "action.active", mr: 1, my: 0.5 }} />
+              <TextField
+                hiddenLabel
+                id="filled-hidden-label-normal"
+                defaultValue="32"
+                variant="filled"
+                style={{ width: "18vw" }}
+              />
+            </Box>
+            {/* <Link  className={classes.link}> */}
+            <Button
+              className={classes.signup_button}
+              //   onClick={alert('User Added Successfully')}
+            >
+              UPDATE USER
+            </Button>
+            {/* </Link> */}
+          </Box>
+        </Box>
+      </Box>
     </Box>
   );
 }
