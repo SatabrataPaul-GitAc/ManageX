@@ -19,13 +19,7 @@ const useStyles = makeStyles({
         paddingLeft: '3rem',
         width: '50vw',
     },
-    // container2:{
-    //     width: '50vw',
-    //     backgroundColor: '#F37C50',
-    //     display: 'flex',
-    //     justifyContent: 'center',
-    //     alignItems: 'center'
-    // },
+
  
 })
 
@@ -51,11 +45,7 @@ function Hero() {
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
           />
         </Box>
-      {/* <Box className={classes.container2}>
-          <div className="hero_textbox">
-              <p>An application to maintain the data of the employess, and can also add, delete, update data based on the requirement.</p>
-          </div>
-      </Box> */}
+
     </Box>
   );
 }
