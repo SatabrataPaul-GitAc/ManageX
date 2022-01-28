@@ -9,12 +9,12 @@ const updateEmployee = (req,res) => {
         const email = req.header("email");
         if(!email) throw new HTTPError(400, "Header Email not found");
         Users.findOne({email:email}, (err,user)=>{
-            if(!user) res.statusCode(400).json({statusCode:400, message: "User Not Found"});
-            if(user.isLoggedIn===false) res.statusCode(400).json({statusCode:400, message: "User Not Logged In"});
+            if(!user) res.status(400).json({statusCode:400, message: "User Not Found"});
+            if(user.isLoggedIn===false) res.status(400).json({statusCode:400, message: "User Not Logged In"});
             else{
                 const id = req.query.employee_id;
                 Employees.findOne({employee_id: id}, (err,data)=>{
-                    if(err) res.statusCode(400).json({statusCode: 400, message: "Employee not found"});
+                    if(err) res.status(400).json({statusCode: 400, message: "Employee not found"});
                     // console.log(data);
                     const nemployee_name = req.body.employee_name;
                     const nemployee_salary = req.body.employee_salary;
@@ -31,12 +31,12 @@ const updateEmployee = (req,res) => {
                     }
 
                     data.save();
-                    res.statusCode(200).json({statusCode: 200, message: "Employee Data Changed Successfully"});
+                    res.status(200).json({statusCode: 200, message: "Employee Data Changed Successfully"});
                 })
             }
         })
     } catch (err) {
-        res.statusCode(err.statuscode | 400).json({statusCode: 400, message: err.message});
+        res.status(err.statuscode | 400).json({statusCode: 400, message: err.message});
     }
 }
 

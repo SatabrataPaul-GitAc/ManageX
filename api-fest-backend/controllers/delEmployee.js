@@ -10,9 +10,9 @@ const delEmployee = (req,res) => {
         if(!email) throw new HTTPError(400,"Header email not found");
 
         Users.findOne({email: email}, (err, user)=>{
-            if(!user) res.statusCode(400).json({statusCode: 400, message: "User not found"});
+            if(!user) res.status(400).json({statusCode: 400, message: "User not found"});
 
-            if(user.isLoggedIn===false) res.statusCode(400).json({statusCode: 400, message: "User not Logged in"});
+            if(user.isLoggedIn===false) res.status(400).json({statusCode: 400, message: "User not Logged in"});
 
             const id=req.query.employee_id;
 
@@ -23,13 +23,13 @@ const delEmployee = (req,res) => {
                 if(err){
                     console.log(err);
                 }
-                if(!data) res.statusCode(400).json({statusCode: 400, message: "Employee doesn't exist"});
+                if(!data) res.status(400).json({statusCode: 400, message: "Employee doesn't exist"});
                 data.remove();
-                res.statusCode(200).json({statusCode: 200, message: "Employee deleted successfully"});
+                res.status(200).json({statusCode: 200, message: "Employee deleted successfully"});
             })
         })
     } catch (err) {
-        return res.statusCode(err.statusCode | 400).json({statusCode: err.statusCode, message: err.message});
+        return res.status(err.statusCode | 400).json({statusCode: err.statusCode, message: err.message});
     }
 }
 
