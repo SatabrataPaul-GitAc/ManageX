@@ -1,6 +1,7 @@
-import { Button, makeStyles, Typography } from "@material-ui/core";
+import { Button, makeStyles, TextField, Typography } from "@material-ui/core";
 import { Box } from "@mui/material";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   main_container: {
@@ -10,7 +11,7 @@ const useStyles = makeStyles({
   },
   left_container: {
     display: "flex",
-    width: "30vw",
+    width: "40vw",
     height: "90vh",
     backgroundColor: "#2C2C2C",
     justifyContent: "center",
@@ -18,63 +19,43 @@ const useStyles = makeStyles({
   },
   right_container: {
     display: "flex",
-    width: "70vw",
-    height: "80vh",
-  },
-  user_container: {
-    display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
+    width: "60vw",
+    height: "90vh",
+    backgroundColor: "#2C2C2C",
+    alignItems: 'center'
   },
-  dashboard_cards: {
+  signup_form: {
     display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  dashboard_card: {
-    width: "300px",
-    height: "160px",
-    backgroundColor: "#000",
-    margin: "4rem",
-    display: "flex",
+    justifyContent: "space-around",
     flexDirection: "column",
+    alignItems: "center",
+    height: "60vh",
+    margin: "auto",
+    padding: "2rem",
+    backgroundColor: "#fff",
     borderRadius: "20px",
   },
-  image_dashboard: {
-    width: "100%",
-    height: "100%",
-    objectFit: "cover",
-  },
-  image_box: {
-    width: "250px",
-    height: "250px",
-    borderRadius: "100px",
-  },
-  image_user: {
-    borderRadius: "100px",
-    width: "100%",
-    height: "100%",
-    objectFit: "cover",
-  },
-  user_text: {
-    color: "#f2f2f2",
-    fontSize: "24px",
-    paddingTop: "1rem",
-  },
-  button_box: {
-    display: "flex",
+  signup_button: {
     backgroundColor: "#FF6C37",
-  },
-  button: {
-    margin: "0.5rem auto 0.5rem auto",
-    color: "#FF6C37",
-    backgroundColor: "#fff",
+    color: "#fff",
+    fontWeight: 800,
+    width: "20vw",
+    padding: "0.7rem",
     "&:hover": {
-      backgroundColor: "#2C2C2C",
+      backgroundColor: "#000",
     },
   },
+  link: {
+    fontSize: 25,
+    color: "#fff",
+    textDecoration: "none",
+  },
+  heading:{
+      color: '#f2f2f2',
+      fontSize: '2.5rem',
+      paddingTop: '2rem',
+  }
 });
 
 function AddData() {
@@ -83,12 +64,45 @@ function AddData() {
     <Box className={classes.main_container}>
       <Box className={classes.left_container}>
         <img
-          src="https://res.cloudinary.com/dzbdnlr0f/image/upload/v1643301798/sign_up_cpqnhp.webp"
+          src="https://res.cloudinary.com/dzbdnlr0f/image/upload/v1643378933/apiFest-%20manageX/c9766811449634cab83a657a51c8448c_ysxcvy.webp"
           alt=""
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
         />
       </Box>
-      <Box className={classes.right_container}>add data</Box>
+      <Box className={classes.right_container}>
+        <Typography className={classes.heading}>Add User Data</Typography>
+        <Box className={classes.signup_form}>
+          <TextField
+            id="outlined-basic"
+            label="User ID"
+            variant="outlined"
+            style={{ width: "30vw" }}
+          />
+          <TextField
+            id="outlined-basic"
+            label="Employee Name"
+            variant="outlined"
+            style={{ width: "30vw" }}
+          />
+          <TextField
+            id="outlined-basic"
+            label="Employee Age"
+            variant="outlined"
+            style={{ width: "30vw" }}
+          />
+          <TextField
+            id="outlined-basic"
+            label="Salary"
+            variant="outlined"
+            style={{ width: "30vw" }}
+          />
+          {/* <Link  className={classes.link}> */}
+          <Button className={classes.signup_button} 
+        //   onClick={alert('User Added Successfully')}
+          >ADD USER</Button>
+          {/* </Link> */}
+        </Box>
+      </Box>
     </Box>
   );
 }

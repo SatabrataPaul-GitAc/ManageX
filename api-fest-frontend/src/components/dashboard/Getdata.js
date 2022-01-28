@@ -10,7 +10,7 @@ const useStyles = makeStyles({
   },
   left_container: {
     display: "flex",
-    width: "30vw",
+    width: "40vw",
     height: "90vh",
     backgroundColor: "#2C2C2C",
     justifyContent: "center",
@@ -18,7 +18,7 @@ const useStyles = makeStyles({
   },
   right_container: {
     display: "flex",
-    width: "70vw",
+    width: "60vw",
     height: "80vh",
   },
   user_container: {
@@ -83,7 +83,7 @@ function GetData() {
     <Box className={classes.main_container}>
       <Box className={classes.left_container}>
         <img
-          src="https://res.cloudinary.com/dzbdnlr0f/image/upload/v1643301798/sign_up_cpqnhp.webp"
+          src="https://res.cloudinary.com/dzbdnlr0f/image/upload/v1643378454/apiFest-%20manageX/46b67d8fd0255e2f677f4306c867f8c1_svj9cq.webp"
           alt=""
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
         />

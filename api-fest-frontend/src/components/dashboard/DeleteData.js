@@ -10,7 +10,7 @@ const useStyles = makeStyles({
   },
   left_container: {
     display: "flex",
-    width: "30vw",
+    width: "40vw",
     height: "90vh",
     backgroundColor: "#2C2C2C",
     justifyContent: "center",
@@ -18,7 +18,7 @@ const useStyles = makeStyles({
   },
   right_container: {
     display: "flex",
-    width: "70vw",
+    width: "60vw",
     height: "80vh",
   },
   user_container: {
@@ -83,7 +83,7 @@ function DeleteData() {
     <Box className={classes.main_container}>
       <Box className={classes.left_container}>
         <img
-          src="https://res.cloudinary.com/dzbdnlr0f/image/upload/v1643301798/sign_up_cpqnhp.webp"
+          src="https://res.cloudinary.com/dzbdnlr0f/image/upload/v1643378174/apiFest-%20manageX/6d3a8d1cc9366bfb777d3870acedb183_qmf7xt.webp"
           alt=""
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
         />
