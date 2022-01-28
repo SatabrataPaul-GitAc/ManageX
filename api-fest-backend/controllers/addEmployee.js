@@ -21,11 +21,11 @@ const addEmployee = (req,res) => {
 
 
         Users.findOne({email: email}, (err, user)=>{
-            if(!user) res.statusCode(400).json({statusCode: 400, message: "User not found!"});
+            if(!user) res.status(400).json({statusCode: 400, message: "User not found!"});
 
-            if(user.isLoggedIn===false) res.statusCode(400).json({statusCode: 400, message: "User not Logged in!"});
+            if(user.isLoggedIn===false) res.status(400).json({statusCode: 400, message: "User not Logged in!"});
             Employees.findOne({employee_id: empid}, (err,employee)=>{
-                if(employee) res.statusCode(400).json({statusCode: 400, message: "Employee already exits"});
+                if(employee) res.status(400).json({statusCode: 400, message: "Employee already exits"});
                 else{
                     const newEmployee = new Employees({
                         employee_id: empid,
@@ -37,17 +37,17 @@ const addEmployee = (req,res) => {
                     newEmployee.save((err)=>{
                         if(err){
                             // console.log(err);
-                            res.statusCode(400).json({statusCode: 400, message: err});
+                            res.status(400).json({statusCode: 400, message: err});
                         }
                         else{
-                            res.statusCode(200).json({statusCode: 200, message: "Employee Data created successfully"});
+                            res.status(200).json({statusCode: 200, message: "Employee Data created successfully"});
                         }
                     })
                 }
             })
         })
     } catch (err) {
-        return res.statusCode(err.statusCode | 400).json({statusCode: err.statusCode, message: err.message});
+        return res.status(err.statusCode | 400).json({statusCode: err.statusCode, message: err.message});
     }
 }
 

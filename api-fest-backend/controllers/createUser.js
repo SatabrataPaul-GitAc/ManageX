@@ -24,7 +24,7 @@ const createUser = (req,res) => {
         if(!password) throw new HTTPError(400, "Password not found");
 
         Users.findOne({email: email}, (err,user)=>{
-            if(user) res.statusCode(400).json({statusCode: 400,message: "User already exists"});
+            if(user) res.status(400).json({statusCode: 400,message: "User already exists"});
             else{
                 password=hashPassword(password);
                 
@@ -39,14 +39,14 @@ const createUser = (req,res) => {
                         console.log(err);
                     }
                     else{
-                        res.statusCode(200).json({statusCode: 200, message: "User Registered Successfully", userEmail: newUser.email});
+                        res.status(200).json({statusCode: 200, message: "User Registered Successfully", userEmail: newUser.email});
                     }
                 });
             }
         });
     }
     catch(err){
-        return res.statusCode(err.statusCode | 400).json({statusCode: err.statusCode, message: err.message});
+        return res.status(err.statusCode | 400).json({statusCode: err.statusCode, message: err.message});
     }
 };
 
