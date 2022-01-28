@@ -77,7 +77,7 @@ const useStyles = makeStyles({
   },
 });
 
-function AddData() {
+function Updatedata() {
   const classes = useStyles();
   return (
     <Box className={classes.main_container}>
@@ -88,9 +88,9 @@ function AddData() {
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
         />
       </Box>
-      <Box className={classes.right_container}>add data</Box>
+      <Box className={classes.right_container}>update data</Box>
     </Box>
   );
 }
 
-export default AddData;
+export default Updatedata;
