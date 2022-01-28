@@ -17,18 +17,18 @@ const loginUser = (req,res) => {
             if(err){
                 console.log(err);
             }
-            if(!user) res.status(400).json({status: "error", message: "User not registered!"});
+            if(!user) res.statusCode(400).json({statusCode: 400, message: "User not registered!"});
             const valid = bcrypt.compareSync(password,user.password);
             if(valid){
                 user.isLoggedIn=true;
                 user.save();
-                res.status(200).json({status: 200, message: "User Logged in Successfully"});
+                res.statusCode(200).json({statusCode: 200, message: "User Logged in Successfully", user: user});
                 
             }
         });
     }
     catch(err){
-        console.log(err);
+        res.statusCode(err.statuscode | 400).json({statusCode: 400, message: err.message});
     }
 }
 
