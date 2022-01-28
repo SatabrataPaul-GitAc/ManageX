@@ -1,6 +1,13 @@
 import { Button, makeStyles, Typography } from "@material-ui/core";
 import { Box } from "@mui/material";
 import React from "react";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
 
 const useStyles = makeStyles({
   main_container: {
@@ -19,63 +26,40 @@ const useStyles = makeStyles({
   right_container: {
     display: "flex",
     width: "60vw",
-    height: "80vh",
-  },
-  user_container: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
+    height: "90vh",
+    backgroundColor: "#2C2C2C",
     alignItems: "center",
-  },
-  dashboard_cards: {
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  dashboard_card: {
-    width: "300px",
-    height: "160px",
-    backgroundColor: "#000",
-    margin: "4rem",
-    display: "flex",
     flexDirection: "column",
-    borderRadius: "20px",
   },
-  image_dashboard: {
-    width: "100%",
-    height: "100%",
-    objectFit: "cover",
-  },
-  image_box: {
-    width: "250px",
-    height: "250px",
-    borderRadius: "100px",
-  },
-  image_user: {
-    borderRadius: "100px",
-    width: "100%",
-    height: "100%",
-    objectFit: "cover",
-  },
-  user_text: {
+  heading: {
     color: "#f2f2f2",
-    fontSize: "24px",
-    paddingTop: "1rem",
-  },
-  button_box: {
-    display: "flex",
-    backgroundColor: "#FF6C37",
-  },
-  button: {
-    margin: "0.5rem auto 0.5rem auto",
-    color: "#FF6C37",
-    backgroundColor: "#fff",
-    "&:hover": {
-      backgroundColor: "#2C2C2C",
-    },
+    fontSize: "2.5rem",
+    paddingTop: "2rem",
   },
 });
+
+function createData(name, salary, age, id) {
+  return { name, salary, age, id };
+}
+
+const rows = [
+  createData("Virat Kohli", "$1200", 32, "fr47rf4e5r4"),
+  createData("Virat Kohli", "$1200", 32, "fr47rf4e5r4"),
+  createData("Virat Kohli", "$1200", 32, "fr47rf4e5r4"),
+  createData("Virat Kohli", "$1200", 32, "fr47rf4e5r4"),
+  createData("Virat Kohli", "$1200", 32, "fr47rf4e5r4"),
+  createData("Virat Kohli", "$1200", 32, "fr47rf4e5r4"),
+  createData("Virat Kohli", "$1200", 32, "fr47rf4e5r4"),
+  createData("Virat Kohli", "$1200", 32, "fr47rf4e5r4"),
+  createData("Virat Kohli", "$1200", 32, "fr47rf4e5r4"),
+  createData("Virat Kohli", "$1200", 32, "fr47rf4e5r4"),
+  createData("Virat Kohli", "$1200", 32, "fr47rf4e5r4"),
+  createData("Virat Kohli", "$1200", 32, "fr47rf4e5r4"),
+  createData("Virat Kohli", "$1200", 32, "fr47rf4e5r4"),
+  createData("Virat Kohli", "$1200", 32, "fr47rf4e5r4"),
+  createData("Virat Kohli", "$1200", 32, "fr47rf4e5r4"),
+  createData("Virat Kohli", "$1200", 32, "fr47rf4e5r4"),
+];
 
 function GetData() {
   const classes = useStyles();
@@ -88,7 +72,37 @@ function GetData() {
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
         />
       </Box>
-      <Box className={classes.right_container}>Getdata</Box>
+      <Box className={classes.right_container}>
+        <Typography className={classes.heading}>All Employee Data</Typography>
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell>Employee Name </TableCell>
+                <TableCell align="right">salary</TableCell>
+                <TableCell align="right">age</TableCell>
+                <TableCell align="right">Employee id</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {rows.map((row) => (
+                <TableRow
+                  key={row.name}
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                >
+                  <TableCell component="th" scope="row">
+                    {row.name}
+                  </TableCell>
+                  <TableCell align="right">{row.salary}</TableCell>
+                  <TableCell align="right">{row.age}</TableCell>
+                  <TableCell align="right">{row.id}</TableCell>
+                  <TableCell align="right"></TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </Box>
     </Box>
   );
 }
