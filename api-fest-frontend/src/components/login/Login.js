@@ -38,7 +38,7 @@ const useStyles = makeStyles({
   login_left: {
     width: "50vw",
     height: "70vh",
-    backgroundColor: "#fff222",
+    backgroundColor: "#000",
   },
   container: {
     width: "90vw",

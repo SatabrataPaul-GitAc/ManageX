@@ -11,6 +11,7 @@ import "react-tiger-transition/styles/main.min.css";
 
 import { glide } from "react-tiger-transition";
 import { Navigation } from "react-tiger-transition/cjs/react-tiger-transition.min";
+import AddData from "./components/dashboard/AddData";
 
 glide({
   name: "glide-right",
@@ -31,6 +32,11 @@ function App() {
           <Route exact path="/login" transition='glide-left' component={Login} />
           <Route exact path="/signup" transition='glide-left' component={Signup} />
           <Route exact path="/dashboard" transition='glide-left' component={Dashboard} />
+          <Route exact path="/getdata" transition='glide-left' component={AddData} />
+          <Route exact path="/adddata" transition='glide-left' component={AddData} />
+          <Route exact path="/updatedata" transition='glide-left' component={AddData} />
+          <Route exact path="/deletedata" transition='glide-left' component={AddData} />
+          
         </Navigation>
       </Switch>
     </BrowserRouter>

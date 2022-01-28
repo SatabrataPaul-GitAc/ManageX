@@ -1,6 +1,7 @@
 import { Button, makeStyles, Typography } from "@material-ui/core";
 import { Box } from "@mui/material";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   main_container: {
@@ -72,8 +73,13 @@ const useStyles = makeStyles({
     color: "#FF6C37",
     backgroundColor: "#fff",
     "&:hover": {
-      backgroundColor: "#000",
+      backgroundColor: "#2C2C2C",
     },
+  },
+  link_dashboardButton: {
+    fontSize: 25,
+    color: "#fff",
+    textDecoration: "none",
   },
 });
 
@@ -103,9 +109,11 @@ function Dashboard() {
                 className={classes.image_dashboard}
               />
             </Box>
-            <Box className={classes.button_box}>
-              <Button className={classes.button}>GET DATA</Button>
-            </Box>
+            <Link to="/getdata" className={classes.link_dashboardButton}>
+              <Box className={classes.button_box}>
+                <Button className={classes.button}>GET DATA</Button>
+              </Box>
+            </Link>
           </div>
           <div className={classes.dashboard_card}>
             <Box>
@@ -115,9 +123,11 @@ function Dashboard() {
                 alt=""
               />
             </Box>
-            <Box className={classes.button_box}>
-              <Button className={classes.button}>ADD DATA</Button>
-            </Box>
+            <Link to="/adddata" className={classes.link_dashboardButton}>
+              <Box className={classes.button_box}>
+                <Button className={classes.button}>ADD DATA</Button>
+              </Box>
+            </Link>
           </div>
           <div className={classes.dashboard_card}>
             <Box>
@@ -127,9 +137,11 @@ function Dashboard() {
                 className={classes.image_dashboard}
               />
             </Box>
-            <Box className={classes.button_box}>
-              <Button className={classes.button}>UPDATE DATA</Button>
-            </Box>
+            <Link to="/updatedata" className={classes.link_dashboardButton}>
+              <Box className={classes.button_box}>
+                <Button className={classes.button}>UPDATE DATA</Button>
+              </Box>
+            </Link>
           </div>
           <div className={classes.dashboard_card}>
             <Box>
@@ -139,9 +151,11 @@ function Dashboard() {
                 className={classes.image_dashboard}
               />
             </Box>
-            <Box className={classes.button_box}>
-              <Button className={classes.button}>DELETE DATA</Button>
-            </Box>
+            <Link to="/deletedata" className={classes.link_dashboardButton}>
+              <Box className={classes.button_box}>
+                <Button className={classes.button}>DELETE DATA</Button>
+              </Box>
+            </Link>
           </div>
         </div>
       </Box>
