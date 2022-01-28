@@ -1,8 +1,6 @@
 const models = require('../model/model.js');
 const Users = models.userModel;
-const Employees = models.employeeModel;
 const bcrypt = require('bcryptjs');
-const mongoose = require('mongoose');
 const HTTPError = require('../HTTPError.js');
 
 const hashPassword = function generateHash(password){
@@ -16,7 +14,7 @@ const hashPassword = function generateHash(password){
     }
 }
 
-const postUser = (req,res) => {
+const createUser = (req,res) => {
     try{
         const name = req.body.name;
         const email = req.body.email;
@@ -26,7 +24,7 @@ const postUser = (req,res) => {
         if(!password) throw new HTTPError(400, "Password not found");
 
         Users.findOne({email: email}, (err,user)=>{
-            if(user) res.status(400).json({status: "error",message: "User already exists"});
+            if(user) res.statusCode(400).json({statusCode: 400,message: "User already exists"});
             else{
                 password=hashPassword(password);
                 
@@ -41,15 +39,15 @@ const postUser = (req,res) => {
                         console.log(err);
                     }
                     else{
-                        res.status(200).json({status: "success", message: "User Registered Successfully"});
+                        res.statusCode(200).json({statusCode: 200, message: "User Registered Successfully", userEmail: newUser.email});
                     }
                 });
             }
         });
     }
     catch(err){
-        return res.status(err.statusCode | 400).json({status: "error", message: err.message});
+        return res.statusCode(err.statusCode | 400).json({statusCode: err.statusCode, message: err.message});
     }
 };
 
-module.exports = postUser;
+module.exports = createUser;
