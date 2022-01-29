@@ -98,6 +98,16 @@ function Updatedata() {
         </Box>
         <Box className={classes.right_container_bottom}>
           <Box className={classes.update_form}>
+          <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+              {/* <EditIcon sx={{ color: "action.active", mr: 1, my: 0.5 }} /> */}
+              <TextField
+                hiddenLabel
+                id="filled-hidden-label-normal"
+                defaultValue="Id: fr47rf4e5r4	"
+                variant="filled"
+                style={{ width: "18vw" }}
+              />
+            </Box>
             <Box sx={{ display: "flex", alignItems: "flex-end" }}>
               <EditIcon sx={{ color: "action.active", mr: 1, my: 0.5 }} />
               <TextField
