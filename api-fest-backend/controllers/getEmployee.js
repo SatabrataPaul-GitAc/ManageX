@@ -15,9 +15,9 @@ const getEmployee = (req,res) => {
                 console.log(err);
             }
 
-            if(!user) res.status(400).json({statusCode: 200, message: "User not found! Please register!"});
+            if(!user) res.status(400).json({statusCode: 400, message: "User not found! Please register!"});
 
-            if(user.isLoggedIn===false) res.status(400).json({statusCode: 200, message: "User not Logged in!"});
+            if(user.isLoggedIn===false) res.status(400).json({statusCode: 400, message: "User not Logged in!"});
             
             else{
             Employees.find({}, (err,data)=>{
@@ -31,7 +31,7 @@ const getEmployee = (req,res) => {
         })
     }
     catch(err){
-        return res.status(err.statusCode | 400).json({statusCode: 400, message: err.message});
+        res.status(err.statusCode | 400).json({statusCode: 400, message: err.message});
     }
 }
 
