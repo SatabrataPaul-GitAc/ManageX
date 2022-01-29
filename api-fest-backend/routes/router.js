@@ -11,7 +11,7 @@ const delEmployee = require('../controllers/delEmployee');
 router.post('/loginUser', loginUser);
 router.post('/logoutUser', logoutUser);
 router.post('/createUser', createUser);
-router.get('/getEmployee', getEmployee);
+router.get('/getEmployees', getEmployee);
 router.get('/getEmployeeById', getEmployeeById);
 router.post('/addEmployee', addEmployee);
 router.put('/updateEmployee', updateEmployee);

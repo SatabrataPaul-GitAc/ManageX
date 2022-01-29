@@ -14,7 +14,12 @@ const updateEmployee = (req,res) => {
             else{
                 const id = req.query.employee_id;
                 Employees.findOne({employee_id: id}, (err,data)=>{
-                    if(err) res.status(400).json({statusCode: 400, message: "Employee not found"});
+                    if(err){
+                        console.log(err);
+                    }
+
+                    if(!data) res.status(400).json({statusCode: 400, message: "Employee does not exist"});
+                    
                     // console.log(data);
                     const nemployee_name = req.body.employee_name;
                     const nemployee_salary = req.body.employee_salary;

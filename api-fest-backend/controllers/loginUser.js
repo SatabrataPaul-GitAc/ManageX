@@ -25,6 +25,9 @@ const loginUser = (req,res) => {
                 res.status(200).json({statusCode: 200, message: "User Logged in Successfully", user: user});
                 
             }
+            else{
+                res.status(400).json({statusCode: 400, message: "Password Provided Incorrect"});
+            }
         });
     }
     catch(err){
