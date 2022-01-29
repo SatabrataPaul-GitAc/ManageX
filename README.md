@@ -3,10 +3,10 @@ Application which helps an HR or Manager , to manage the details and information
 
 It provides these functionalities:
 
-Registration of a User (HR or Manager)
-Logging In the user
-Fetching all Employee Details
-Adding a New Employee to the system
-Updating an Existing Employee's details
-Deleting an Existing Employee
-Logigng Out the User
+Registration of a User (HR or Manager)<br />
+Logging In the user<br />
+Fetching all Employee Details<br />
+Adding a New Employee to the system<br />
+Updating an Existing Employee's details<br />
+Deleting an Existing Employee<br />
+Logigng Out the User<br />
