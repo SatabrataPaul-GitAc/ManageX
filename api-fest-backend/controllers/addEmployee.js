@@ -25,7 +25,7 @@ const addEmployee = (req,res) => {
 
             if(user.isLoggedIn===false) res.status(400).json({statusCode: 400, message: "User not Logged in!"});
             Employees.findOne({employee_id: empid}, (err,employee)=>{
-                if(employee) res.status(400).json({statusCode: 400, message: "Employee already exits"});
+                if(employee) res.status(400).json({statusCode: 400, message: "Employee already exists"});
                 else{
                     const newEmployee = new Employees({
                         employee_id: empid,
@@ -40,7 +40,7 @@ const addEmployee = (req,res) => {
                             res.status(400).json({statusCode: 400, message: err});
                         }
                         else{
-                            res.status(200).json({statusCode: 200, message: "Employee Data created successfully"});
+                            res.status(200).json({statusCode: 200, message: "Employee Data added successfully"});
                         }
                     })
                 }

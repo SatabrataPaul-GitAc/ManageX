@@ -18,10 +18,14 @@ const getEmployeeById = (req,res) => {
             // console.log(req.query.id);
             const id=req.query.employee_id;
             
-            console.log(id);
+            // console.log(id);
             Employees.findOne({employee_id: id},(err,data)=>{
+                if(err){
+                    console.log(err);
+                }
                
-                if(err) res.status(400).json({statusCode: 400, message: "Employee data not fetched"});
+                if(!data) res.status(400).json({statusCode: 400, message: "Employee does not exist"});
+
                 res.status(200).json({statusCode: 200, message: "Employee Data Fetched successfully", data: data});
             })
         })
