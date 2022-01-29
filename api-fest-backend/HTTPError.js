@@ -1,4 +1,4 @@
-const HTTPError = (statuscode, message) => {
+const HTTPError = function (statuscode, message) {
     const error = {
         statuscode,
         message

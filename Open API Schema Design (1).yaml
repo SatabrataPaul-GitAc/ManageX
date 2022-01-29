@@ -1,0 +1,446 @@
+openapi: 3.0.0
+info:
+  version: '1.0.0'
+  title: 'HR Management API'
+servers:
+  - url: 'http://3.108.39.42:80'
+paths:
+    /createUser:
+        post:
+            summary: 'Endpoint which allows a new User to get created'
+            operationId: createUser
+            tags:
+                - creatingNewUser
+            requestBody:
+                required: true
+                description: "Contains the name and emailid of the user to be created"
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/createUser"
+            responses:
+                '200':
+                    description: 'Success Response if the user was created successfully'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/successResp"
+                '400':
+                    description: "Error Response"
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Error"
+    /loginUser:
+        post:
+            summary: "Endpoint which allows an existing user to login"
+            operationId: loginUser
+            tags:
+                - loggingInExistingUser
+            requestBody:
+                required: true
+                description: "Contains the emailid and password of the user "
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/loginUser"
+            responses:
+                '200':
+                    description: 'Success Response if the user was loggedin successfully'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/successRespLogin"
+                '400':
+                    description: "Error Response"
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/Error"
+                                
+    /getEmployees:
+        get:
+          summary: "Endpoint for getting all the employee information"
+          operationId: getEmployees
+          tags:
+              - getAllEmpolyeeData
+          
+          security:
+            - email_id: []
+      
+          responses:
+            '200':
+                description: "Success Response with all employees data returned"
+                content:
+                  application/json:
+                    schema:
+                      $ref: "#/components/schemas/EmployeeData"
+            
+            '400':
+              description: "Error Response"
+              content:
+                application/json:
+                  schema:
+                    $ref: "#/components/schemas/Error"
+
+    /getEmployeeById:
+        post:
+          summary: "Endpoint for getting a specific employee details by its id"
+          operationId: getEmployeeById
+          tags:
+            - getEmployeeDataById
+            
+          security:
+            - email_id: []
+            
+          parameters:
+            - name: "employee_id"
+              in: query
+              required: true
+              description: "Employee id passed as a query parameter for getting specific employee data"
+              schema:
+                type: string
+                
+          responses:
+            '200':
+                description: "Success Response with all employees data returned"
+                content:
+                  application/json:
+                    schema:
+                      $ref: "#/components/schemas/SpecificEmployeeData"
+            
+            '400':
+              description: "Error Response"
+              content:
+                application/json:
+                  schema:
+                    $ref: "#/components/schemas/Error"
+                    
+    /addEmployee:
+        post:
+          summary: "Endpoint for adding  new employee details"
+          operationId: addEmployee
+          tags:
+            - addNewEmployeeData
+            
+          security:
+            - email_id: []
+              
+          requestBody:
+                required: true
+                description: "Contains the id,name,salary and age of the employee to be added"
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/addEmployeeData"
+                
+          responses:
+                '200':
+                    description: 'Success Response if the employee data was added successfully'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/successResp"
+                
+                '400':
+                    description: "Error Response"
+                    content:
+                        application/json:
+                          schema:
+                              $ref: "#/components/schemas/Error"
+                              
+                              
+    
+    /updateEmployee:
+        put:
+          summary: "Endpoint for updating existing employee details"
+          operationId: updateEmployee
+          tags:
+            - updateExistingEmployeeData
+            
+          security:
+            - email_id: []
+            
+          parameters:    
+            - name: "employee_id"
+              in: query
+              required: true
+              description: "Employee id passed as a query parameter "
+              schema:
+                type: string
+                
+          
+          requestBody:
+                required: true
+                description: "Contains the name,salary and age of the employee to be updated"
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/updateEmployeeData"  
+                            
+          responses:
+                '200':
+                    description: 'Success Response if the employee data was updated successfully'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/successResp"
+                                
+                                
+                '400':
+                    description: "Error Response"
+                    content:
+                      application/json:
+                          schema:
+                              $ref: "#/components/schemas/Error"
+          
+          
+    /delEmployee:
+        delete:
+          summary: "Endpoint for deleting an existing employee details"
+          operationId: deleteEmployee
+          tags:
+            - deleteExistingEmployee
+            
+          security:
+            - email_id: []
+            
+          parameters:
+            - name: "employee_id"
+              in: query
+              required: true
+              description: "Employee id passed as a query parameter "
+              schema:
+                type: string
+                
+          responses:
+                '200':
+                    description: 'Success Response if the employee data was updated successfully'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/successResp"
+                                
+                '400':
+                    description: "Error Response"
+                    content:
+                      application/json:
+                          schema:
+                              $ref: "#/components/schemas/Error"
+                              
+    /logoutUser:
+        post:
+          summary: "Endpoint for logging out the current user"
+          operationId: logoutUser
+          tags:
+            - loggingOutCurrentUser
+            
+          security:
+            - email_id: []
+          
+          responses:
+                '200':
+                    description: 'Success Response if the employee data was updated successfully'
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/successResp"
+                                
+                '400':
+                    description: "Error Response"
+                    content:
+                      application/json:
+                          schema:
+                              $ref: "#/components/schemas/Error"
+                
+            
+            
+                
+components:
+  schemas:
+  
+    createUser:
+      type: object
+      required:
+        - name
+        - email
+        - password
+      properties:
+        name:
+          type: string
+          example: "Mohan Desai"
+        email:
+          type: string
+          example: "mohan@gmail.com"
+        password:
+            type: string
+            example: "hello#$%"
+
+    loginUser:
+        type: object
+        required:
+            - email
+            - password
+        properties:
+            email:
+                type: string
+                example: "mohan@gmail.com"
+            password:
+                type: string
+                example: "hello#$%"
+                
+    EmployeeData:
+        type: object
+        required:
+          - statusCode
+          - message
+          - data
+        properties:
+          statusCode:
+            type: integer
+            format: int32
+            example: 200
+          message:
+            type: string
+            example: "Emplyee Datas fetched successfully"
+          data:
+            type: array
+            items:
+              type: object
+            example: [
+                {"emoloyee_id": "256",
+                "employee_name": "Karan",
+                "employee_salary": "20000",
+                "employee_age": "23"},
+
+                {"emoloyee_id": "257",
+                "employee_name": "Kushal",
+                "employee_salary": "30000",
+                "employee_age": "25"}
+
+            ]
+              
+    SpecificEmployeeData:
+        type: object
+        required: 
+          - statusCode
+          - message
+          - data
+        properties:
+          statusCode:
+            type: integer
+            format: int32
+            example: 200
+          message:
+            type: string
+            example: "Employee Data fetched successfully"
+          data:
+            type: object
+            example: {
+                "emoloyee_id": "257",
+                "employee_name": "Kushal",
+                "employee_salary": "30000",
+                "employee_age": "25"
+            }
+            
+    
+    addEmployeeData:
+        type: object
+        required:
+          - employee_id
+          - employee_name
+          - employee_salary
+          - employee_age
+        properties:
+          employee_id:
+            type: string
+            example: "561"
+          employee_name:
+            type: string
+            example: "Kushal"
+          employee_salary:
+            type: string
+            example: "45000"
+          employee_age:
+            type: string
+            example: "30"
+            
+    
+    updateEmployeeData:
+        type: object
+        required:
+          - employee_name
+          - employee_salary
+          - employee_age
+        properties:
+          employee_name:
+            type: string
+            example: "Lily"
+          employee_salary:
+            type: string
+            example: "36000"
+          employee_age:
+            type: string
+            example: "36"
+            
+            
+    successRespLogin:
+        type: object
+        required:
+            - statusCode
+            - message
+            - user
+        properties:
+            statusCode:
+                type: integer
+                format: int32
+                example: 200
+            message:
+                type: string
+                example: "User Logged In Successfully"
+            user:
+              type: object
+              example: {
+                  "name": "Kritika",
+                  "email": "kritika@gmail.com",
+                  "password": "dbcjlbdehiwhd.xi.erilcnrelkbejb"
+              }
+    
+    successResp:
+        type: object
+        required:
+            - statusCode
+            - message
+        properties:
+            statusCode:
+                type: integer
+                format: int32
+                example: 200
+            message:
+                type: string
+                example: "Success Response"
+      
+    Error:
+      type: object
+      required:
+        - statusCode
+        - message
+      properties:
+        statusCode:
+          type: integer
+          format: int32
+          example: 400
+        message:
+          type: string
+          example: "Error Response"
+          
+    
+  securitySchemes:
+    email_id:
+      type: apiKey
+      description: Email_id of User to authorize requests.
+      name: email
+      in: header
+    
+    
+          
